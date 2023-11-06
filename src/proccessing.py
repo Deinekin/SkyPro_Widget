@@ -1,4 +1,4 @@
-def get_list_by_key(input_list: list[dict], key="EXECUTED") -> list[dict]:
+def get_list_by_key(input_list: list[dict], key:str = "EXECUTED") -> list[dict]:
     """
     принимает на вход список словарей и значение для ключа state
     и возвращает новый список, содержащий только те словари, у которых ключ
