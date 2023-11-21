@@ -42,21 +42,22 @@ def dict_usd():
 
 
 def test_get_json():
-    assert get_json(os.path.abspath('data/test_valid.json')) == [{
-        "id": 441945886,
-        "state": "EXECUTED",
-        "date": "2019-08-26T10:50:58.294041",
-        "operationAmount": {
-            "amount": "31957.58",
-            "currency": {
-                "name": "руб.",
-                "code": "RUB"
-            }
+    assert get_json(os.path.abspath('data/test_valid.json')) == [
+        {
+            "id": 441945886,
+            "state": "EXECUTED",
+            "date": "2019-08-26T10:50:58.294041",
+            "operationAmount": {
+                "amount": "31957.58",
+                "currency": {
+                    "name": "руб.",
+                    "code": "RUB"
+                }
+            },
+            "description": "Перевод организации",
+            "from": "Maestro 1596837868705199",
+            "to": "Счет 64686473678894779589"
         },
-        "description": "Перевод организации",
-        "from": "Maestro 1596837868705199",
-        "to": "Счет 64686473678894779589"
-    },
         {
             "id": 41428829,
             "state": "EXECUTED",
