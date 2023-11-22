@@ -1,9 +1,9 @@
 from src.logger import setup_logging
-
+from typing import Any
 logger = setup_logging()
 
 
-def get_card_mask(card: str) -> str:
+def get_card_mask(card: str) -> str | Any:
     """
     Возвращает маску карты
     :param card: номер карты на входе
@@ -23,7 +23,7 @@ def get_card_mask(card: str) -> str:
     return f"{symbols[0]} {symbols[1][:2]}** **** {symbols[3]}"
 
 
-def get_bank_account(bank_acc: str) -> str:
+def get_bank_account(bank_acc: str) -> str | Any:
     """
     Возвращает маску банковского счета
     :param bank_acc: номер счета на входе
