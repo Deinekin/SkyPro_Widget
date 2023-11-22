@@ -1,7 +1,6 @@
-from src.logger import set_info_logger, set_error_logger
+from src.logger import setup_logging
 
-log_info = set_info_logger()
-log_error = set_error_logger()
+logger = setup_logging()
 
 
 def get_card_mask(card: str) -> str:
@@ -10,14 +9,17 @@ def get_card_mask(card: str) -> str:
     :param card: номер карты на входе
     :return: маска карты в формате xxxx xx** **** xxxx
     """
-    log_info.info("Работа функции по получению маски карты.")
+    logger.info("Работа функции по получению маски карты.")
     symbols = []
 
     if len(card) != 16 or not card.isdigit():
-        return log_error.error("Неверно указан номер карты!")
+        logger.error("Неверно указан номер карты!")
+        return logger.info("Завершена работа функции по получению маски карты.")
 
     for symbol in range(0, len(card), 4):
         symbols.append(card[symbol: symbol + 4])
+
+    logger.info("Завершена работа функции по получению маски карты.")
     return f"{symbols[0]} {symbols[1][:2]}** **** {symbols[3]}"
 
 
@@ -27,8 +29,10 @@ def get_bank_account(bank_acc: str) -> str:
     :param bank_acc: номер счета на входе
     :return: маска счета в видео ****xx
     """
-    log_info.info("Работа функции по получению маски счета.")
+    logger.info("Работа функции по получению маски счета.")
     if not bank_acc.isdigit():
-        return log_error.error("Неверно указан счет!")
+        logger.info("Завершена работа функции по получению маски счета.")
+        return logger.error("Неверно указан счет!")
 
+    logger.info("Завершена работа функции по получению маски счета.")
     return f"**{bank_acc[-4:]}"
